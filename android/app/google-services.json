@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "58065501341",
+    "project_id": "khikaya-17b41",
+    "storage_bucket": "khikaya-17b41.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:58065501341:android:a6a498e2d4462038632874",
+        "android_client_info": {
+          "package_name": "kz.khikaya.khikaya"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "58065501341-hapjab98rpgq5r871v4ora4e3oatmivm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCQ0nHL9hnvqlPmuZlEh2o9mC5edCXxPvc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "58065501341-hapjab98rpgq5r871v4ora4e3oatmivm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
