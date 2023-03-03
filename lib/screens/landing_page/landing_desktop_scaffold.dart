@@ -34,6 +34,7 @@ class _LandingDesktopScaffoldState extends State<LandingDesktopScaffold> {
           fontSize: 17, fontWeight: FontWeight.w500, fontFamily: 'Montserrat'),
     )
   ];
+  double _firstContainerHeight = 0;
   @override
   Widget build(BuildContext context) {
     Size screenSize = Utils().getScreenSize();
@@ -130,8 +131,261 @@ class _LandingDesktopScaffoldState extends State<LandingDesktopScaffold> {
                 ),
               ],
             ),
-            //CardWidget(imgUrl: imgList[0])
+            const SizedBox(
+              height: 60,
+            ),
+            Stack(
+              children: [
+                Row(
+                  children: [
+                    BlackContainer(screenSize: screenSize),
+                    BlackContainer(screenSize: screenSize),
+                    BlackContainer(screenSize: screenSize),
+                  ],
+                ),
+                Padding(
+                  padding:
+                      EdgeInsets.symmetric(vertical: screenSize.height / 6),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: [
+                      TextDesign(text: "ideate"),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        //grade: 0.2,
+                        size: 45,
+                      ),
+                      TextDesign(text: "structurize"),
+                      Icon(
+                        Icons.arrow_forward_ios,
+                        color: Colors.white,
+                        //grade: 0.2,
+                        size: 40,
+                      ),
+                      TextDesign(text: "direct"),
+                    ],
+                  ),
+                )
+              ],
+            ),
+            // TestCards(
+            //   imgUrl: 'assets/images/IMG_3065.jpg',
+            //   text: "Bekdaulet  Ganibek",
+            //   uni_name: "Columbia University",
+            // )
+
+            TestimonialsWidget()
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class TestimonialsWidget extends StatefulWidget {
+  const TestimonialsWidget({super.key});
+
+  @override
+  State<TestimonialsWidget> createState() => _TestimonialsWidgetState();
+}
+
+class _TestimonialsWidgetState extends State<TestimonialsWidget> {
+  int activeIndex = 0;
+  final List<String> imgList = [
+    'assets/images/IMG_3065.jpg',
+    'assets/images/IMG_3054.jpg',
+    'assets/images/IMG_3067.jpg',
+    'assets/images/IMG_3065.jpg',
+    'assets/images/IMG_3054.jpg',
+    'assets/images/IMG_3067.jpg',
+  ];
+  final List<String> nameList = [
+    "Bekdaulet  Ganibek",
+    "Aziz Mussilimov",
+    "Abildinova Kamila",
+    "Bekdaulet  Ganibek",
+    "Aziz Mussilimov",
+    "Abildinova Kamila"
+  ];
+  @override
+  Widget build(BuildContext context) {
+    // return Padding(
+    //   padding: const EdgeInsets.only(top: 70),
+    //   child: Column(
+    //     children: [
+    //       CarouselSlider.builder(
+    //         itemCount: 3,
+    //         itemBuilder:
+    //             (BuildContext context, int itemIndex, int pageViewIndex) {
+    //           final urlImage = imgList[itemIndex];
+    //           final textIndex = nameList[itemIndex];
+    //           return TestCards(
+    //               imgUrl: urlImage,
+    //               text: textIndex,
+    //               uni_name: "Columbia University");
+    //         },
+    //         options: CarouselOptions(
+    //           height: 200,
+    //           aspectRatio: 16 / 9,
+    //           viewportFraction: 0.35,
+    //           initialPage: 0,
+    //           autoPlay: true,
+    //           reverse: false,
+    //           autoPlayAnimationDuration: const Duration(milliseconds: 800),
+    //           scrollDirection: Axis.horizontal,
+    //           onPageChanged: (index, reason) {
+    //             setState(() => activeIndex = index);
+    //             //print(activeIndex);
+    //           },
+    //         ),
+    //       ),
+    //       SizedBox(
+    //         height: 50,
+    //       ),
+    //     ],
+    //   ),
+    // );
+    return Container(
+      height: 200,
+      child: ListView.separated(
+          separatorBuilder: (context, index) {
+            return const SizedBox(
+              width: 30,
+            );
+          },
+          shrinkWrap: true,
+          physics: AlwaysScrollableScrollPhysics(),
+          itemCount: 6,
+          scrollDirection: Axis.horizontal,
+          itemBuilder: (BuildContext context, int index) {
+            final urlImage = imgList[index];
+            final textIndex = nameList[index];
+            return TestCards(
+                imgUrl: urlImage,
+                text: textIndex,
+                uni_name: "Columbia University");
+          }),
+    );
+  }
+}
+
+class TestCards extends StatelessWidget {
+  final String imgUrl;
+  final String text;
+  final String uni_name;
+  const TestCards(
+      {super.key,
+      required this.imgUrl,
+      required this.text,
+      required this.uni_name});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(vertical: 10),
+      child: Container(
+        width: 420,
+        height: 130,
+        decoration: BoxDecoration(
+            border: Border(
+                right: BorderSide(color: Colors.grey.shade500, width: 1))),
+        //elevation: 0,
+        child: Row(
+          children: [
+            Padding(
+              padding: const EdgeInsets.only(bottom: 5.0),
+              child: Container(
+                width: 170,
+                //height: 130,
+                child: Image.asset(
+                  imgUrl,
+                  fit: BoxFit.cover,
+                ),
+              ),
+            ),
+            SizedBox(
+              width: 15,
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 10.0),
+                  child: Text(
+                    text,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.w700,
+                      fontSize: 15,
+                    ),
+                  ),
+                ),
+                IconWithText(icon: Icons.book, text: uni_name),
+                SizedBox(
+                  height: 5,
+                ),
+                Container(
+                  width: 225,
+                  //height: 100,
+                  child: Text(
+                    "“ Lorem ipsum dolor sit amet, ut scripserit disputando nam, per ea sale error impedit. Sea etiam dissentiunt ex, sea ea debet eripuitCu laoreet feugait ius, nullam option ornatus ad eos. No quaestio tractatos per. ”",
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.w300,
+                        color: Colors.black),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class TextDesign extends StatelessWidget {
+  final String text;
+
+  const TextDesign({super.key, required this.text});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      child: Center(
+        child: Text(
+          text.toUpperCase(),
+          style: const TextStyle(
+              color: Colors.white, fontSize: 28, fontFamily: 'NEXT ART'),
+        ),
+      ),
+    );
+  }
+}
+
+class BlackContainer extends StatelessWidget {
+  const BlackContainer({
+    super.key,
+    required this.screenSize,
+  });
+
+  final Size screenSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: screenSize.width / 3,
+      height: screenSize.height / 2.6,
+      child: ColorFiltered(
+        colorFilter: ColorFilter.mode(
+          Colors.black.withOpacity(0.81),
+          BlendMode.srcATop,
+        ),
+        child: Image.asset(
+          "assets/images/kk.png",
+          fit: BoxFit.fill,
         ),
       ),
     );
