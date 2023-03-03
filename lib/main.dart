@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:khikaya/firebase_options.dart';
+import 'package:khikaya/screens/landing_page/landing_desktop_scaffold.dart';
 import 'package:khikaya/utilities/constants.dart';
 
 void main() async {
@@ -19,15 +20,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: {
-        '/': (context) => landingPageLayout,
-        '/sign-in': (context) => signInPageLayout,
-        '/sign-up': (context) => signUpPageLayout,
-        '/forgot-password': (context) => forgotPasswordPageLayout,
-        '/error': (context) => errorPageLayout,
-        '/verification': (context) => verificationPageLayout,
-      },
+      home: LandingDesktopScaffold(),
+
+      // initialRoute: '/',
+      // routes: {
+      //   '/': (context) => landingPageLayout,
+      //   '/sign-in': (context) => signInPageLayout,
+      //   '/sign-up': (context) => signUpPageLayout,
+      //   '/forgot-password': (context) => forgotPasswordPageLayout,
+      //   '/error': (context) => errorPageLayout,
+      //   '/verification': (context) => verificationPageLayout,
+      //},
     );
   }
 }
