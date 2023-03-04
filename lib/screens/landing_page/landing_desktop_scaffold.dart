@@ -61,8 +61,8 @@ class _LandingDesktopScaffoldState extends State<LandingDesktopScaffold> {
             HorizontalMarqueeText(
                 text: "University Name",
                 style: TextStyle(
-                    fontSize: 17,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
                     fontFamily: 'Montserrat')),
             // Padding(
             //   padding: const EdgeInsets.only(top: 55.0),
