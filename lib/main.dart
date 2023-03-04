@@ -2,6 +2,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:khikaya/firebase_options.dart';
 import 'package:khikaya/screens/landing_page/landing_desktop_scaffold.dart';
+import 'package:khikaya/screens/mentor_account/first_event_screen.dart';
 import 'package:khikaya/screens/mentor_account/mentor_account_page.dart';
 import 'package:khikaya/utilities/constants.dart';
 
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: MentorAccountPage(),
+      home: FirstEventScreen(),
 
       // initialRoute: '/',
       // routes: {
