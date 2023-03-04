@@ -22,6 +22,7 @@ dependencies:
   scrolling_text: ^0.0.4
   carousel_slider: ^4.2.1
   icon_decoration: ^1.0.1
+  custom_slider: ^0.0.3
 
 
 dev_dependencies:

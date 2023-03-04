@@ -2,9 +2,9 @@ import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:khikaya/utilities/utils.dart';
-import 'package:marquee/marquee.dart';
 import 'package:scrolling_text/scrolling_text.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:marquee/marquee.dart';
 
 class LandingDesktopScaffold extends StatefulWidget {
   const LandingDesktopScaffold({super.key});
@@ -58,42 +58,48 @@ class _LandingDesktopScaffoldState extends State<LandingDesktopScaffold> {
                     color: Color(0xFF000000)),
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 55.0),
-              child: Container(
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 68.0, right: 68),
-                  child: CarouselSlider.builder(
-                    itemCount: 2,
-                    itemBuilder: (BuildContext context, int itemIndex,
-                        int pageViewIndex) {
-                      final textInd = textList[itemIndex];
-                      return Container(
-                        width: 360,
-                        //margin: const EdgeInsets.symmetric(horizontal: 5),
-                        child: textInd,
-                      );
-                    },
-                    options: CarouselOptions(
-                      height: 50,
-                      aspectRatio: 0,
-                      viewportFraction: 0.2,
-                      initialPage: 0,
-                      autoPlay: true,
-                      reverse: true,
-                      autoPlayInterval: Duration(milliseconds: 1000),
-                      autoPlayAnimationDuration:
-                          const Duration(milliseconds: 1000),
-                      scrollDirection: Axis.horizontal,
-                      // onPageChanged: (index, reason) {
-                      //   setState(() => activeIndex = index);
-                      //   //print(activeIndex);
-                      // },
-                    ),
-                  ),
-                ),
-              ),
-            ),
+            HorizontalMarqueeText(
+                text: "University Name",
+                style: TextStyle(
+                    fontSize: 17,
+                    fontWeight: FontWeight.w700,
+                    fontFamily: 'Montserrat')),
+            // Padding(
+            //   padding: const EdgeInsets.only(top: 55.0),
+            //   child: Container(
+            //     child: Padding(
+            //       padding: const EdgeInsets.only(left: 68.0, right: 68),
+            //       child: CarouselSlider.builder(
+            //         itemCount: 2,
+            //         itemBuilder: (BuildContext context, int itemIndex,
+            //             int pageViewIndex) {
+            //           final textInd = textList[itemIndex];
+            //           return Container(
+            //             width: 360,
+            //             //margin: const EdgeInsets.symmetric(horizontal: 5),
+            //             child: textInd,
+            //           );
+            //         },
+            //         options: CarouselOptions(
+            //           height: 50,
+            //           aspectRatio: 0,
+            //           viewportFraction: 0.2,
+            //           initialPage: 0,
+            //           autoPlay: true,
+            //           reverse: true,
+            //           autoPlayInterval: Duration(milliseconds: 1000),
+            //           autoPlayAnimationDuration:
+            //               const Duration(milliseconds: 1000),
+            //           scrollDirection: Axis.horizontal,
+            //           // onPageChanged: (index, reason) {
+            //           //   setState(() => activeIndex = index);
+            //           //   //print(activeIndex);
+            //           // },
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
             const SizedBox(
               height: 40,
             ),
@@ -138,9 +144,18 @@ class _LandingDesktopScaffoldState extends State<LandingDesktopScaffold> {
               children: [
                 Row(
                   children: [
-                    BlackContainer(screenSize: screenSize),
-                    BlackContainer(screenSize: screenSize),
-                    BlackContainer(screenSize: screenSize),
+                    BlackContainer(
+                      screenSize: screenSize,
+                      imgUrl: "assets/images/idea-1.png.webp",
+                    ),
+                    BlackContainer(
+                      screenSize: screenSize,
+                      imgUrl: "assets/images/struct.jpg",
+                    ),
+                    BlackContainer(
+                      screenSize: screenSize,
+                      imgUrl: "assets/images/third_ad.webp",
+                    ),
                   ],
                 ),
                 Padding(
@@ -149,34 +164,87 @@ class _LandingDesktopScaffoldState extends State<LandingDesktopScaffold> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
+                      SizedBox(
+                        width: 5,
+                      ),
                       TextDesign(text: "ideate"),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                        //grade: 0.2,
-                        size: 45,
+                      Padding(
+                        padding: const EdgeInsets.only(left: 90.0),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
+                          //grade: 0.2,
+                          size: 40,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
                       ),
                       TextDesign(text: "structurize"),
-                      Icon(
-                        Icons.arrow_forward_ios,
-                        color: Colors.white,
-                        //grade: 0.2,
-                        size: 40,
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: Icon(
+                          Icons.arrow_forward_ios,
+                          color: Colors.white,
+                          //grade: 0.2,
+                          size: 40,
+                        ),
+                      ),
+                      SizedBox(
+                        width: 5,
                       ),
                       TextDesign(text: "direct"),
+                      SizedBox(
+                        width: 5,
+                      ),
                     ],
                   ),
                 )
               ],
             ),
+
+            SizedBox(
+              height: screenSize.height / 6,
+            ),
+            TestimonialsWidget()
+
             // TestCards(
             //   imgUrl: 'assets/images/IMG_3065.jpg',
             //   text: "Bekdaulet  Ganibek",
             //   uni_name: "Columbia University",
             // )
-
-            TestimonialsWidget()
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class HorizontalMarqueeText extends StatelessWidget {
+  final String text;
+  final TextStyle style;
+
+  HorizontalMarqueeText({required this.text, required this.style});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 55, vertical: 30),
+      child: Container(
+        height: 30.0,
+        child: Marquee(
+          text: text,
+          style: style,
+          scrollAxis: Axis.horizontal,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          blankSpace: 20.0,
+          velocity: 90.0,
+          //pauseAfterRound: Duration(seconds: 1),
+          startPadding: 10.0,
+          //accelerationDuration: Duration(seconds: 1),
+          accelerationCurve: Curves.linear,
+          //decelerationDuration: Duration(milliseconds: 500),
+          decelerationCurve: Curves.easeOut,
         ),
       ),
     );
@@ -366,10 +434,9 @@ class TextDesign extends StatelessWidget {
 }
 
 class BlackContainer extends StatelessWidget {
-  const BlackContainer({
-    super.key,
-    required this.screenSize,
-  });
+  final String imgUrl;
+  const BlackContainer(
+      {super.key, required this.screenSize, required this.imgUrl});
 
   final Size screenSize;
 
@@ -384,7 +451,7 @@ class BlackContainer extends StatelessWidget {
           BlendMode.srcATop,
         ),
         child: Image.asset(
-          "assets/images/kk.png",
+          imgUrl,
           fit: BoxFit.fill,
         ),
       ),
