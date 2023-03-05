@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:khikaya/utilities/utils.dart';
 
 class MentorAccountPage extends StatefulWidget {
   const MentorAccountPage({super.key});
@@ -11,7 +10,7 @@ class MentorAccountPage extends StatefulWidget {
 class _MentorAccountPageState extends State<MentorAccountPage> {
   @override
   Widget build(BuildContext context) {
-    Size screenSize = Utils().getScreenSize();
+    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
         backgroundColor: Colors.white,
         appBar: AppBarWidgets(
@@ -244,8 +243,8 @@ Widget MeetingCard() {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Row(
-                  children: [
+                Row(
+                  children: const [
                     Icon(
                       Icons.copy,
                       size: 15,

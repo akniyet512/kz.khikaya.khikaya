@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:khikaya/screens/mentor_account/mentor_account_page.dart';
-import 'package:khikaya/utilities/utils.dart';
 
 class FirstEventScreen extends StatefulWidget {
   const FirstEventScreen({super.key});
@@ -12,7 +11,7 @@ class FirstEventScreen extends StatefulWidget {
 class _FirstEventScreenState extends State<FirstEventScreen> {
   @override
   Widget build(BuildContext context) {
-    Size screenSize = Utils().getScreenSize();
+    Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBarWidgets(screenSize: screenSize),
       body: Column(
@@ -64,7 +63,7 @@ class _EventWidgetState extends State<EventWidget> {
 
   @override
   Widget build(BuildContext context) {
-    Size screenSize = Utils().getScreenSize();
+    Size screenSize = MediaQuery.of(context).size;
     return Center(
       child: Container(
         width: screenSize.width / 1.2,
@@ -240,7 +239,7 @@ class TextFieldWidget extends StatefulWidget {
 class _TextFieldWidgetState extends State<TextFieldWidget> {
   @override
   Widget build(BuildContext context) {
-    Size screenSize = Utils().getScreenSize();
+    Size screenSize = MediaQuery.of(context).size;
     return Column(
       //mainAxisSize: MainAxisSize.min,
       crossAxisAlignment: CrossAxisAlignment.start,
