@@ -258,6 +258,7 @@ class _EventWidgetState extends State<EventWidget> {
 class TextFieldWidget extends StatefulWidget {
   final int maxLines;
   final double? height;
+  final double? width;
   final String title;
   final TextEditingController controller;
   final bool obscureText;
@@ -269,6 +270,7 @@ class TextFieldWidget extends StatefulWidget {
       required this.controller,
       this.obscureText = false,
       this.hintText,
+      this.width,
       required this.maxLines});
 
   @override
