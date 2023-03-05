@@ -1,9 +1,6 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:khikaya/firebase_options.dart';
-import 'package:khikaya/screens/landing_page/landing_desktop_scaffold.dart';
-import 'package:khikaya/screens/mentor_account/first_event_screen.dart';
-import 'package:khikaya/screens/mentor_account/mentor_account_page.dart';
 import 'package:khikaya/utilities/constants.dart';
 
 void main() async {
@@ -20,19 +17,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      home: FirstEventScreen(),
-
-      // initialRoute: '/',
-      // routes: {
-      //   '/': (context) => landingPageLayout,
-      //   '/sign-in': (context) => signInPageLayout,
-      //   '/sign-up': (context) => signUpPageLayout,
-      //   '/forgot-password': (context) => forgotPasswordPageLayout,
-      //   '/error': (context) => errorPageLayout,
-      //   '/verification': (context) => verificationPageLayout,
-      //},
+      initialRoute: '/',
+      routes: {
+        '/': (context) => landingPageLayout,
+        '/sign-in': (context) => signInPageLayout,
+        '/sign-up': (context) => signUpPageLayout,
+        '/forgot-password': (context) => forgotPasswordPageLayout,
+        '/error': (context) => errorPageLayout,
+        '/verification': (context) => verificationPageLayout,
+      },
     );
   }
 }

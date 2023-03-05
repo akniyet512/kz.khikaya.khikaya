@@ -23,12 +23,18 @@ import 'package:khikaya/utilities/responsive_format.dart';
 const double mobileMaxWidth = 768;
 const double tabletMaxWidth = 1080;
 
+//colors
+const Color backgroundColor = Colors.white;
+const Color foregroundColor = Color(0xFF000000);
+final Color backgroundLayer = Colors.black.withOpacity(0.81);
+
 //layouts
 const Widget landingPageLayout = ResponsiveLayout(
   mobileScaffold: LandingMobileScaffold(),
   tabletScaffold: LandingTabletScaffold(),
   desktopScaffold: LandingDesktopScaffold(),
-);const Widget signInPageLayout = ResponsiveLayout(
+);
+const Widget signInPageLayout = ResponsiveLayout(
   mobileScaffold: SignInMobileScaffold(),
   tabletScaffold: SignInTabletScaffold(),
   desktopScaffold: SignInDesktopScaffold(),

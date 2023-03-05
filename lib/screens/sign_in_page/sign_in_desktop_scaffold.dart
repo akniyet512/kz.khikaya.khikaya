@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:khikaya/utilities/constants.dart';
+import 'package:khikaya/widgets/desktop_layout/header_widget.dart';
 
 class SignInDesktopScaffold extends StatefulWidget {
   const SignInDesktopScaffold({super.key});
@@ -10,6 +12,16 @@ class SignInDesktopScaffold extends StatefulWidget {
 class _SignInDesktopScaffoldState extends State<SignInDesktopScaffold> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      appBar: const HeaderWidget(),
+      backgroundColor: backgroundColor,
+      body: Center(
+        child: Column(
+          children: [
+            
+          ],
+        ),
+      ),
+    );
   }
 }
