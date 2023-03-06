@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:khikaya/screens/mentor_account/mentor_account_page.dart';
+import 'package:khikaya/screens/mentor_home_page/mentor_home_desktop_scaffold.dart';
 
 class FirstEventScreen extends StatefulWidget {
   const FirstEventScreen({super.key});

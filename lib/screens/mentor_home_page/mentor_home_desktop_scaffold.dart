@@ -1,57 +1,61 @@
 import 'package:flutter/material.dart';
+import 'package:khikaya/services/authorization_services.dart';
+import 'package:khikaya/widgets/clickable_widget.dart';
 
-class MentorAccountPage extends StatefulWidget {
-  const MentorAccountPage({super.key});
+class MentorHomeDesktopScaffold extends StatefulWidget {
+  const MentorHomeDesktopScaffold({super.key});
 
   @override
-  State<MentorAccountPage> createState() => _MentorAccountPageState();
+  State<MentorHomeDesktopScaffold> createState() =>
+      _MentorHomeDesktopScaffoldState();
 }
 
-class _MentorAccountPageState extends State<MentorAccountPage> {
+class _MentorHomeDesktopScaffoldState extends State<MentorHomeDesktopScaffold> {
   @override
   Widget build(BuildContext context) {
     Size screenSize = MediaQuery.of(context).size;
     return Scaffold(
-        backgroundColor: Colors.white,
-        appBar: AppBarWidgets(
-          screenSize: screenSize,
-        ),
-        body: Column(
-          children: [
-            MyCalendar(screenSize: screenSize),
-            Padding(
-              padding: const EdgeInsets.only(top: 30.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  SizedBox(
-                    width: 10,
+      backgroundColor: Colors.white,
+      appBar: AppBarWidgets(
+        screenSize: screenSize,
+      ),
+      body: Column(
+        children: [
+          MyCalendar(screenSize: screenSize),
+          Padding(
+            padding: const EdgeInsets.only(top: 30.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                SizedBox(
+                  width: 10,
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 80.0),
+                  child: CustomButton(
+                    height: 32,
+                    width: 172,
+                    text: "+   New event type",
                   ),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 80.0),
-                    child: CustomButton(
-                      height: 32,
-                      width: 172,
-                      text: "+   New event type",
-                    ),
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  MeetingCard(),
-                  MeetingCard(),
-                  MeetingCard(),
-                  MeetingCard(),
-                ],
-              ),
-            )
-          ],
-        ));
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 40, vertical: 40),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                MeetingCard(),
+                MeetingCard(),
+                MeetingCard(),
+                MeetingCard(),
+              ],
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
 
@@ -68,21 +72,29 @@ class CustomButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: height,
-      width: width,
-      decoration: BoxDecoration(
+    return ClickableWidget(
+      onTap: () {},
+      child: Container(
+        height: height,
+        width: width,
+        decoration: BoxDecoration(
           color: Color(0xFFE9D700).withOpacity(0.6),
           borderRadius: BorderRadius.circular(4),
-          border: Border.all(width: 1.5, color: Color(0xFF000000))),
-      child: Center(
-        child: Text(
-          text,
-          style: const TextStyle(
+          border: Border.all(
+            width: 1.5,
+            color: Color(0xFF000000),
+          ),
+        ),
+        child: Center(
+          child: Text(
+            text,
+            style: const TextStyle(
               fontWeight: FontWeight.w600,
               fontSize: 14,
               fontFamily: 'Montserrat',
-              color: Color(0xFF000000)),
+              color: Color(0xFF000000),
+            ),
+          ),
         ),
       ),
     );
@@ -316,20 +328,31 @@ class AppBarWidgets extends StatelessWidget implements PreferredSizeWidget {
             //mainAxisSize: MainAxisSize.min,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Container(
-                height: 26,
-                width: 90,
-                decoration: BoxDecoration(
-                    border: Border.all(color: Colors.black, width: 1),
-                    borderRadius: BorderRadius.circular(7)),
-                child: const Center(
-                  child: Text(
-                    'log out',
-                    style: TextStyle(
+              ClickableWidget(
+                onTap: () {
+                  AuthorizationServices().signOut();
+                  Navigator.of(context).pushReplacementNamed('/');
+                },
+                child: Container(
+                  height: 26,
+                  width: 90,
+                  decoration: BoxDecoration(
+                    border: Border.all(
+                      color: Colors.black,
+                      width: 1,
+                    ),
+                    borderRadius: BorderRadius.circular(7),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'log out',
+                      style: TextStyle(
                         color: Colors.black,
                         fontSize: 16,
                         fontWeight: FontWeight.w600,
-                        fontFamily: 'Montserrat'),
+                        fontFamily: 'Montserrat',
+                      ),
+                    ),
                   ),
                 ),
               ),
@@ -339,17 +362,22 @@ class AppBarWidgets extends StatelessWidget implements PreferredSizeWidget {
                   height: 38,
                   width: 38,
                   decoration: BoxDecoration(
-                      border: Border.all(color: Color(0xFFE9D700), width: 3),
-                      borderRadius: BorderRadius.circular(19),
-                      color: Color(0xFFE9D700).withOpacity(0.25)),
+                    border: Border.all(
+                      color: Color(0xFFE9D700),
+                      width: 3,
+                    ),
+                    borderRadius: BorderRadius.circular(19),
+                    color: Color(0xFFE9D700).withOpacity(0.25),
+                  ),
                   child: const Center(
                     child: Text(
                       "A",
                       style: TextStyle(
-                          color: Color(0xFFE9D700),
-                          fontSize: 24,
-                          fontWeight: FontWeight.w500,
-                          fontFamily: 'Montserrat'),
+                        color: Color(0xFFE9D700),
+                        fontSize: 24,
+                        fontWeight: FontWeight.w500,
+                        fontFamily: 'Montserrat',
+                      ),
                     ),
                   ),
                 ),
