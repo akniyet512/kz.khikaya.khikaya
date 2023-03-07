@@ -36,7 +36,7 @@ class _MainSectionWidgetState extends State<MainSectionWidget> {
                 fontWeight: FontWeight.w600,
                 letterSpacing: 0.4,
                 fontSize: 90,
-                color: foregroundColor,
+                color: Colors.black,
               ),
             ),
           ),

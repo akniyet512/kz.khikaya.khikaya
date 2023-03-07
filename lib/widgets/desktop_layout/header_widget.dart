@@ -22,7 +22,7 @@ class HeaderWidget extends StatelessWidget implements PreferredSizeWidget {
             const Text(
               "KH.",
               style: TextStyle(
-                color: foregroundColor,
+                color: Colors.black,
                 fontFamily: 'NEXT ART',
                 fontWeight: FontWeight.w600,
                 fontSize: 40,

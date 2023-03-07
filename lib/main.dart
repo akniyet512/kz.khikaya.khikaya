@@ -38,8 +38,10 @@ class MyApp extends StatelessWidget {
         '/error': (context) => errorPageLayout,
         '/verification': (context) => verificationPageLayout,
         '/user-home': (context) => userHomePageLayout,
-        '/admin-home': (context) => userHomePageLayout,
-        '/mentor-home': (context) => userHomePageLayout,
+        '/admin-home': (context) => adminHomePageLayout,
+        '/mentor-home': (context) => mentorHomePageLayout,
+        '/new-event-type-first': (context) => newEventTypeFirstPageLayout,
+        '/new-event-type-second': (context) => newEventTypeSecondPageLayout,
       },
     );
   }

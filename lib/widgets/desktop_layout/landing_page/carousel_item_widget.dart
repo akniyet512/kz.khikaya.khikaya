@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:khikaya/utilities/constants.dart';
 import 'package:khikaya/widgets/clickable_widget.dart';
 
 class CarouselItemWidget extends StatelessWidget {
@@ -123,7 +124,7 @@ class CarouselItemWidget extends StatelessWidget {
                 child: Container(
                   height: 35,
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: backgroundColor,
                     border: Border.all(
                       width: 1,
                       color: Colors.black,
